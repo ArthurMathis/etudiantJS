@@ -7,7 +7,7 @@ function etudiantNomPrenom(nom, prenom)  {
 }
 
 function etudiantFormaté(e) {
-    return `NOM : ${e.nom} Prénom : ${e.prenom}`
+    return `NOM : ${e.nom}, Prénom : ${e.prenom}`
 }
 
 function testEtudiant() {
@@ -22,8 +22,8 @@ function testEtudiant() {
 
 class Compteur{
     constructor(valeur, limite){
-        this.valeur = valeur;
-        this.limite = limite;
+        this.valeur = valeur || 0;
+        this.limite = limite || 100;
     }
 
     valeur(){
@@ -31,15 +31,11 @@ class Compteur{
     } 
 
     limiteAtteinte(){
-        if(this.valeur === this.limite){
-            return true;
-        }
+        return this.valeur === this.limite ? true : false;
     }
 
     augmente(){
-        if(!this.limiteAtteinte()){
-            ++this.valeur;
-        }
+        if(!this.limiteAtteinte()){ ++this.valeur; }
     }
 
     static aPartirObjet(objc){
